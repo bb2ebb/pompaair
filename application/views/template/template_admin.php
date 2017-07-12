@@ -1,0 +1,90 @@
+<html lang="en"><head><title><?php echo isset($title) ? $title : "" ?></title>
+        <?php echo $tambahan_cssjs;
+        echo $script ?>
+<?php $exchange = [
+    "https://liqui.io" => ["LiquiExchange", "liquiio"], 
+    "https://bleutrade.com" => ["BLEUTRADE", "bleutrade"], 
+    "http://yobit.net" => ["YOBIT", "yobit"], "http://vip.bitcoin.co.id" => ["VIP.BITCOIN.CO.ID", "vipbitcoinkoid"], "https://bittrex.com/home/markets" => ["BITTREX", "bittrex"], "https://c-cex.com/?id=trade" => ["C-CEX", "ccex"], "https://poloniex.com/exchange" => ["POLONIEX", "poloniex"], "https://www.cryptopia.co.nz/Exchange" => ["CRYPTOPIA", "cryptopia"], "https://btc-e.com" => ["BTC-E", "btce"]];
+asort($exchange);
+ ?>
+        <style>
+            /*div.dataTables_wrapper { min-height: 300px; }*/
+            div.container {width: 80%;}
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation"  style="margin-bottom: 0">
+
+                <div class="pull-left" style="padding-left: 20px">
+                    <img height="45" alt="Data Karbit Exchanges" src="<?php echo base_url("assets/imeg/logo.png") ?>" />
+                </div>
+                <!--<div class="container">-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">Data Karbit Exchanges</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Exchanges<b class="caret"></b></a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <?php
+                                foreach ($exchange as $key => $value) {
+                                    echo '<li><a href="' . $key . '" target="_blank">' . $value[0] . '</a></li>';
+                                }
+                                ?>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="sidebar">
+                        <div class="navbar-collapse">
+                            <ul class="nav" id="sidemenu">
+
+                                <!--SIDE BAR-->
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url() ?>"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8">
+                                    <a data-toggle="collapse" data-parent="#sidemenu" href="#chart-menu"><i class="fa fa-bar-chart-o"></i> Tampil Up Down<i class="fa fa-toggle-on pull-right clearfix"></i></a>
+                                    <ul id="chart-menu" class="collapse nav nav-second-level">
+                                        <li><a href="<?php echo base_url('tampil') ?>">Tampil Semua</a></li>
+                                        <li><a href="<?php echo base_url('tampil/up') ?>">Tampil UP</a></li>
+                                        <li><a href="<?php echo base_url('tampil/down') ?>">Tampil DOWN</a></li>
+                                    </ul>
+                                </li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url('input/delete') ?>"><i class="fa fa-table"></i> Hapus Semua Data</a></li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url('input') ?>"><i class="fa fa-edit"></i> Tambahkan Data Baru</a></li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8">
+                                    <a data-toggle="collapse" data-parent="#sidemenu" href="#ui-elements"><i class="fa fa-wrench"></i> Exchanger Currency<i class="fa fa-toggle-on pull-right clearfix"></i></a>
+                                    <ul id="ui-elements" class="collapse nav nav-second-level">
+                                        <li><a href="<?php echo base_url('tampildata')?>"> Semua Data Exchanger</a></li>
+                                        <?php
+                                        foreach ($exchange as $key => $value) {
+                                            echo '<li><a href="' . base_url('exchanges/'.$value[1]) . '">' . $value[0] . '</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url('input/update') ?>"><i class="fa fa-sitemap"></i> Update</a></li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url('bitcointalk') ?>"><i class="fa fa-sitemap"></i> Bitcointalk</a></li>
+                                <li class="panel" style="margin-bottom:0;background-color:#f8f8f8"><a href="<?php echo base_url('coin') ?>"><i class="fa fa-sitemap"></i> Simpanan Koin</a></li>
+                                
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+<?php echo $contents ?>
+            </div>
+
+        </div>
+    </body>
+</html>

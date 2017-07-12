@@ -1,0 +1,30 @@
+.largeIcon{
+    font-size: 50px;
+    padding: 0 35px 0 35px;
+}
+a:hover{
+    text-decoration: none;
+    text-decoration-color: greenyellow;
+}
+.alert-error-messages{
+    font: italic bold 10px/13px Calibri, Georgia, serif;
+}
+.navbar-brand1 {
+    background: url(http://disputebills.com/site/uploads/2015/10/dispute.png) center / contain no-repeat;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    width: 200px; /* no height needed ... image will resize automagically */
+}
+#bodytabel{
+    /*height: 100%;*/
+    overflow: hidden;
+}
+table>thead>tr>th,
+table>tfoot>tr>th,
+table>tbody>tr>td{
+    table-layout: fixed;
+    text-align: center !important;
+    vertical-align:middle !important;
+    font: bold 15px calibri, times new roman;
+}
